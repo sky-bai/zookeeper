@@ -14,6 +14,14 @@ type RoundRobinBalance struct {
 	conf load_balance.LoadBalanceConf
 }
 
+func (r *RoundRobinBalance) Get(s string) (string, error) {
+	panic("implement me")
+}
+
+func (r *RoundRobinBalance) Update() {
+	panic("implement me")
+}
+
 func (r *RoundRobinBalance) Add(params ...string) error {
 	if len(params) == 0 {
 		return errors.New("params is empty")
