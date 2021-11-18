@@ -2,7 +2,6 @@ package load_balance
 
 import (
 	"errors"
-	"zookeeper/load_balance"
 )
 
 // RoundRobinBalance 轮询负载均衡
@@ -11,7 +10,7 @@ type RoundRobinBalance struct {
 	rss      []string
 
 	// 这里我需要维护下游服务器列表
-	conf load_balance.LoadBalanceConf
+	conf LoadBalanceConf
 }
 
 func (r *RoundRobinBalance) Get(s string) (string, error) {
@@ -39,4 +38,8 @@ func (r *RoundRobinBalance) Next() string {
 	}
 	r.curIndex++
 	return r.rss[r.curIndex-1]
+}
+
+func (r *RoundRobinBalance) SetConf(conf LoadBalanceConf) {
+	r.conf = conf
 }
