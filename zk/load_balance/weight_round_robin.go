@@ -17,14 +17,14 @@ type WeightRoundRobinBalance struct {
 	curIndex int
 	rss      []*WeightNode
 	rsw      int
-	conf     LoadBalanceConf
+	conf     LoadBalanceZkConf
 }
 
 func (w *WeightRoundRobinBalance) Get(s string) (string, error) {
 	panic("implement me")
 }
 
-func (w *WeightRoundRobinBalance) SetConf(conf LoadBalanceConf) {
+func (w *WeightRoundRobinBalance) SetConf(conf LoadBalanceZkConf) {
 	w.conf = conf
 }
 
